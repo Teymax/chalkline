@@ -2,3 +2,22 @@
   margin: 0;
   padding: 0;
 }
+//Shadows
+.shadow {
+  &--light {
+    box-shadow: $light-shadow;
+  }
+
+  &--medium {
+    box-shadow: $medium-shadow;
+  }
+
+  &--dark {
+    box-shadow: $dark-shadow;
+  }
+
+  &--darkest {
+    box-shadow: $darkest-shadow;
+  }
+}
+
