@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-   asd
+   <div></div>
   </section>
 </template>
 
