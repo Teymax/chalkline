@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-   <div></div>
+     index
   </section>
 </template>
 
