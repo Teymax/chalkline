@@ -1,7 +1,9 @@
 <template>
   <header class="shadow--light navbar">
     <v-layout justify-space-between align-center class="py-3 px-4">
-      <img :src="logo" alt="logo" class="navbar__logo">
+      <nuxt-link to="/">
+        <img :src="logo" alt="logo" class="navbar__logo">
+      </nuxt-link>
       <v-icon
         class="navbar__menu-btn hidden-sm-and-up"
         @click="drawer = !drawer"
@@ -61,7 +63,7 @@
                 {
                     icon: 'account_circle',
                     text: 'My Account',
-                    to: ''
+                    to: 'my-account'
                 },
                 {
                     icon: 'playlist_add_check',
