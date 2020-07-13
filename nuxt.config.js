@@ -28,6 +28,20 @@ module.exports = {
     // Simple usage
     '@nuxtjs/vuetify',
   ],
+  env: {
+    API_KEY: process.env.API_KEY
+  },
+  modules: [
+    '@nuxtjs/axios',
+  ],
+
+  axios: {
+    baseURL: 'https://chalkbet.chalklineapi.com/',
+    headers: {
+      'X-API-KEY': process.env.API_KEY,
+    },
+    // proxyHeaders: false
+  },
   build: {
     /*
     ** Run ESLint on save

@@ -27,7 +27,7 @@ ul.slick-dots {
     justify-content: center;
     align-items: center;
     list-style-type: none;
-    padding: 0;
+    padding: 0!important;
     li {
       border-radius: 50%;
       height: 8px;
@@ -44,7 +44,6 @@ ul.slick-dots {
   }
 }
 .featured-games {
-
   overflow-y: hidden;
   &__title {
     font-size: 18px;

@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
 }
+body .theme--light.v-application{
+  background: $bg-gradient;
+}
+body section{
+  background: transparent;
+}
 //Shadows
 .shadow {
   &--light {
