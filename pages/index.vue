@@ -4,6 +4,13 @@
      <Games
        :games="games"
      />
+    <v-layout justify-center align-center>
+      <v-progress-circular
+        v-if="gamesLoader"
+        indeterminate
+        color="primary"
+      />
+    </v-layout>
   </section>
 </template>
 
@@ -16,14 +23,25 @@ export default {
         Games
     },
     data: () => ({
-        games: []
+        games: [],
+        gamesLoader: false
     }),
-    async asyncData({ $axios }) {
-        const { data } = await $axios.get('api/v3/games');
-        return {
-            games: data
-        };
+    created() {
+        this.getGames();
     },
+    methods: {
+        async getGames() {
+            try {
+                this.gamesLoader = true;
+                const { data } = await this.$axios.get('api/v3/games');
+                this.games = data;
+            } catch (e) {
+                console.log(e);
+            } finally {
+                this.gamesLoader = false;
+            }
+        }
+    }
 }
 </script>
 
