@@ -13,12 +13,12 @@
         :key="item.id"
         height="89"
         width="108"
-        color="#F4F4F4"
+        :color="item.active ? '#183358' : '#F4F4F4'"
         elevation="0"
         @click="filterBy(item.title)"
       >
-        <img class="filters-item__icon" :src="item.icon" alt="icon">
-        <span class="filters-item__title">
+        <img class="filters-item__icon" :src="item.active ? item.activeIcon : item.icon" alt="icon">
+        <span class="filters-item__title" :style="{ color: item.active ? '#FFF' : '#000' }">
           {{ item.title }}
         </span>
       </v-btn>
@@ -41,6 +41,9 @@
     import mlb from '@/assets/img/homepage/mlb.png'
     import mls from '@/assets/img/homepage/mls.png'
     import ufc from '@/assets/img/homepage/ufc.png'
+    import mlbWhite from '@/assets/img/homepage/mlbWhite.png'
+    import mlsWhite from '@/assets/img/homepage/mlsWhite.png'
+    import ufcWhite from '@/assets/img/homepage/ufcWhite.png'
     import GamesItem from '@/components/homepage/GamesItem'
 
     export default {
@@ -60,23 +63,37 @@
             mlbDefault,
             filters: [
                 {
-                    title: 'mlb',
-                    icon: mlb
+                    title: 'MLB',
+                    icon: mlb,
+                    activeIcon: mlbWhite,
+                    active: false
                 },
                 {
-                    title: 'mls',
-                    icon: mls
+                    title: 'MLS',
+                    icon: mls,
+                    activeIcon: mlsWhite,
+                    active: false
                 },
                 {
-                    title: 'ufc',
-                    icon: ufc
+                    title: 'UFC',
+                    icon: ufc,
+                    activeIcon: ufcWhite,
+                    active: false
                 }
             ],
             filterText: 'All Games'
         }),
         methods: {
-            filterBy(key) {
-                console.log(key);
+            filterBy(title) {
+                const index = this.filters.findIndex(item => item.title === title);
+                if(this.filters[index].active) {
+                    this.filterText = 'All games';
+                    this.filters.forEach(item => item.active = false);
+                    return;
+                }
+                this.filters.forEach(item => item.active = false);
+                this.filters[index].active = true;
+                this.filterText = title;
             }
         }
     }

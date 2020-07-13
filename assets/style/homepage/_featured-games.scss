@@ -29,6 +29,7 @@ ul.slick-dots {
     list-style-type: none;
     padding: 0!important;
     li {
+      transition: 250ms;
       border-radius: 50%;
       height: 8px;
       width: 8px;
