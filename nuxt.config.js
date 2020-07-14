@@ -39,7 +39,7 @@ module.exports = {
   ],
 
   axios: {
-    baseURL: 'https://chalkbet.chalklineapi.com/',
+    baseURL: 'https://chalkbet.chalklineapi.com/api/v3',
     headers: {
       'X-API-KEY': process.env.API_KEY,
     },

@@ -32,6 +32,7 @@
         components: { VueSlickCarousel },
         data: () => ({
             carouselSettings: {
+                "arrows": false,
                 "dots": true,
                 "infinite": true,
                 "centerMode": true,

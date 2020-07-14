@@ -2,9 +2,9 @@
   <div>
     <b class="filters__btn container" @click="showFilters = !showFilters">
       {{ filterText }}
-    <v-icon color="black" size="14">
-      {{ showFilters ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
-    </v-icon>
+      <v-icon color="black" size="14">
+        {{ showFilters ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+      </v-icon>
     </b>
     <v-layout class="filters" justify-center v-if="showFilters">
       <v-btn
@@ -27,10 +27,11 @@
       <GamesItem
         v-for="item in games"
         :key="item.id"
+        :id="item.id"
         :icon="mlbDefault"
         :name="item.name"
-        :ends="'APR 15, 6:00PM CDT'"
-        :prize="'$50'"
+        :start-date="item.startDate"
+        :prize="item.prizeRule"
       />
     </v-layout>
   </div>
@@ -86,7 +87,7 @@
         methods: {
             filterBy(title) {
                 const index = this.filters.findIndex(item => item.title === title);
-                if(this.filters[index].active) {
+                if (this.filters[index].active) {
                     this.filterText = 'All games';
                     this.filters.forEach(item => item.active = false);
                     return;
@@ -94,7 +95,7 @@
                 this.filters.forEach(item => item.active = false);
                 this.filters[index].active = true;
                 this.filterText = title;
-            }
+            },
         }
     }
 </script>

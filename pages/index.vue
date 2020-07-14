@@ -33,7 +33,7 @@ export default {
         async getGames() {
             try {
                 this.gamesLoader = true;
-                const { data } = await this.$axios.get('api/v3/games');
+                const { data } = await this.$axios.get('games');
                 this.games = data;
             } catch (e) {
                 console.log(e);
