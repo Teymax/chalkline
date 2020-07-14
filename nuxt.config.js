@@ -21,6 +21,9 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  plugins: [
+    "~/plugins/vee-validate.js"
+  ],
   /*
   ** Build configuration
   */
@@ -43,6 +46,7 @@ module.exports = {
     // proxyHeaders: false
   },
   build: {
+    transpile: ["vee-validate/dist/rules"],
     /*
     ** Run ESLint on save
     */

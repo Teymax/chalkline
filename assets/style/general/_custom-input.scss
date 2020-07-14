@@ -1,0 +1,42 @@
+.custom-input {
+  &.theme--light.v-text-field > .v-input__control fieldset{
+    border: none;
+    background: $light-grey;
+  }
+  &.marked .v-input__control .v-input__slot{
+    border: 1px solid $green;
+  }
+  &.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded) > .v-input__control > .v-input__slot, .v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding: 0 30px 0 12px;
+  }
+  & .v-text-field__slot input{
+    font-size: 13px;
+    color: $dark-blue!important;
+  }
+  & .v-label.theme--light {
+    font-size: 13px;
+    color: $dark-blue;
+    font-weight: 500;
+  }
+  & .v-label.v-label--active{
+    top: 28px!important;
+    font-size: 9px;
+  }
+  &__icon {
+    z-index: 1;
+    margin: 5px 0 0;
+  }
+}
+.custom-input-select {
+  & .v-text-field.v-text-field--enclosed:not(.v-text-field--rounded) > .v-input__control > .v-input__slot, .v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding: 0 24px 0 12px;
+  }
+  & .v-icon.notranslate.material-icons.theme--light {
+    color: $dark-blue;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+.custom-input-date-picker {
+
+}

@@ -4,14 +4,25 @@
       <nuxt-link to="/">
         <img :src="logo" alt="logo" class="navbar__logo">
       </nuxt-link>
-      <v-icon
-        class="navbar__menu-btn hidden-sm-and-up"
-        @click="drawer = !drawer"
-        color="#0D2950"
-        size="25"
-      >
-        {{ drawer ? 'close' : 'menu' }}
-      </v-icon>
+      <div>
+        <nuxt-link
+          class="navbar__menu-item"
+          to="sign-up"
+          icon
+        >
+          <v-icon class="ma-3" color="#0D2950">
+            account_circle
+          </v-icon>
+        </nuxt-link>
+        <v-icon
+          class="navbar__menu-btn hidden-sm-and-up"
+          @click="drawer = !drawer"
+          color="#0D2950"
+          size="25"
+        >
+          {{ drawer ? 'close' : 'menu' }}
+        </v-icon>
+      </div>
       <nav
         class="navbar__menu-items hidden-xs-only"
       >
@@ -57,25 +68,38 @@
     export default {
         name: "Navbar",
         data: () => ({
+            loggedIn: false,
             logo,
-            drawer: false,
-            links: [
-                {
-                    icon: 'account_circle',
-                    text: 'My Account',
-                    to: 'my-account'
-                },
-                {
-                    icon: 'playlist_add_check',
-                    text: 'My Picks',
-                    to: ''
-                },
-                {
-                    icon: 'exit_to_app',
-                    text: 'Sign out',
-                    to: ''
-                }
-            ]
+            drawer: false
         }),
+        computed: {
+            links() {
+                if (this.loggedIn) {
+                    return [
+                        {
+                            icon: 'account_circle',
+                            text: 'My Account',
+                            to: 'my-account'
+                        },
+                        {
+                            icon: 'playlist_add_check',
+                            text: 'My Picks',
+                            to: ''
+                        },
+                        {
+                            icon: 'exit_to_app',
+                            text: 'Sign out',
+                            to: ''
+                        }
+                    ]
+                } else return [
+                    {
+                        icon: 'account_circle',
+                        text: 'Sign In',
+                        to: ''
+                    }
+                ]
+            }
+        }
     }
 </script>
